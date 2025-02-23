@@ -1,8 +1,8 @@
 title: in search of a theorem
 description: A mathematics and theoretical computer science blog
-author: ""
-baseurl: "" # the subpath of your site
-url: "" # the base hostname & protocol for your site
+author: "Andrew Kitchin"
+baseurl: "" # Root path for user.github.io repository
+url: "https://andrewpkitchin.github.io" # GitHub Pages URL
 
 # Build settings
 markdown: kramdown
