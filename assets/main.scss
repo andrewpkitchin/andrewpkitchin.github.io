@@ -1,38 +1,67 @@
 ---
 ---
 
-@import "minima";
+@import "jekyll-theme-minimal";
 
 // Custom styles
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 50px;
+  color: #333;
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  float: none;
+  position: static;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+section {
+  width: 100%;
+  float: none;
+}
+
 .site-title {
     font-size: 24px;
     text-decoration: none;
-    
+    color: #333;
+
     &:hover {
         text-decoration: none;
+        color: #267CB9;
     }
 }
 
 .post-list {
     margin-left: 0;
     list-style: none;
-    
+
     li {
         margin-bottom: 30px;
     }
-    
+
     .post-meta {
         font-size: 14px;
         color: #828282;
         display: block;
         margin-bottom: 5px;
     }
-    
+
     .post-link {
         font-size: 18px;
         display: block;
         text-decoration: none;
-        
+        color: #267CB9;
+
         &:hover {
             text-decoration: underline;
         }
@@ -40,11 +69,32 @@
 }
 
 .site-nav {
+    margin-bottom: 30px;
+
     .page-link {
         margin-right: 20px;
-        
+        color: #267CB9;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
         &:last-child {
             margin-right: 0;
         }
     }
+}
+
+@media print, screen and (max-width: 960px) {
+  .wrapper {
+    width: auto;
+    margin: 0;
+  }
+
+  header, section {
+    float: none;
+    position: static;
+    width: auto;
+  }
 }

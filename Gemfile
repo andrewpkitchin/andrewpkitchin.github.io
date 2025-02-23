@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.3.0"
 
 # Theme and plugins
-gem "minima"
+gem "jekyll-theme-minimal"
 gem "jekyll-feed"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
