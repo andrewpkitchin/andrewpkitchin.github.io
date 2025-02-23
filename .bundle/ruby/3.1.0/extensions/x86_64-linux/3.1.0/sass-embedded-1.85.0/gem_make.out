@@ -1,0 +1,5 @@
+current directory: /home/runner/workspace/.bundle/ruby/3.1.0/gems/sass-embedded-1.85.0/ext/sass
+/nix/store/s3l2k1x8v7x7kisg21mgg014gqm3aqgl-ruby-3.1.6/bin/ruby -rrubygems /home/runner/workspace/.bundle/ruby/3.1.0/gems/rake-13.2.1/exe/rake RUBYARCHDIR\=/home/runner/workspace/.bundle/ruby/3.1.0/extensions/x86_64-linux/3.1.0/sass-embedded-1.85.0 RUBYLIBDIR\=/home/runner/workspace/.bundle/ruby/3.1.0/extensions/x86_64-linux/3.1.0/sass-embedded-1.85.0
+gem install --force --install-dir /home/runner/workspace/.bundle/ruby/3.1.0/gems/sass-embedded-1.85.0/ext/sass/ruby --no-document --ignore-dependencies --platform x86_64-linux-gnu --version 1.85.0 sass-embedded
+mv /home/runner/workspace/.bundle/ruby/3.1.0/gems/sass-embedded-1.85.0/ext/sass/ruby/gems/sass-embedded-1.85.0-x86_64-linux-gnu/ext/sass/dart-sass dart-sass
+rm -rf /home/runner/workspace/.bundle/ruby/3.1.0/gems/sass-embedded-1.85.0/ext/sass/ruby

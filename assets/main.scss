@@ -1,0 +1,50 @@
+---
+---
+
+@import "minima";
+
+// Custom styles
+.site-title {
+    font-size: 24px;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+    
+    li {
+        margin-bottom: 30px;
+    }
+    
+    .post-meta {
+        font-size: 14px;
+        color: #828282;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .post-link {
+        font-size: 18px;
+        display: block;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.site-nav {
+    .page-link {
+        margin-right: 20px;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+title: in search of a theorem
+description: A mathematics and theoretical computer science blog
+author: ""
+baseurl: "" # the subpath of your site
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Minima theme settings
+header_pages:
+  - about.md
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
