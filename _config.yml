@@ -1,8 +1,7 @@
 title: in search of a theorem
 description: A mathematics and theoretical computer science blog
 author: "Andrew Kitchin"
-baseurl: "" # Root path for user.github.io repository
-url: "https://andrewpkitchin.github.io" # GitHub Pages URL
+url: "https://andrewpkitchin.github.io"
 
 # Build settings
 markdown: kramdown
@@ -10,14 +9,8 @@ theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 
-# Theme settings
-header_pages:
-  - about.md
-
 # Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor
   - .git
