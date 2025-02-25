@@ -8,6 +8,9 @@ markdown: kramdown
 theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
+  
+# Custom permalink structure without categories
+permalink: /:year/:month/:day/:title.html
 
 # Exclude from processing
 exclude:
