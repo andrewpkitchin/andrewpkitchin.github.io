@@ -9,11 +9,6 @@ layout: default
         {%- assign date_format = "%b %-d, %Y" -%}
         {{ page.date | date: date_format }}
       </time>
-      {%- if page.categories -%}
-      <span class="categories">
-        {{ page.categories | join: ", " }}
-      </span>
-      {%- endif -%}
     </p>
   </header>
 
