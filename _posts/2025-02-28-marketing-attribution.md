@@ -3,6 +3,7 @@ layout: post
 title: "the attribution problem"
 date: 2025-02-28
 permalink: /the_attribution_problem.html
+math: true
 ---
 
 **Introduction: The Attribution Challenge**
