@@ -1,94 +1,77 @@
 ---
 ---
 @import "jekyll-theme-minimal";
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   padding: 50px;
   color: #333;
 }
-
 .wrapper {
   width: 960px;
   margin: 0 auto;
 }
-
 header {
   width: 100%;
   float: none;
   position: static;
   margin-bottom: 20px;
 }
-
 section {
   width: 100%;
   float: none;
 }
-
 .site-title {
   font-size: 24px;
   text-decoration: none;
   color: #333;
-  
+
   &:hover {
     color: #267CB9;
   }
 }
-
 .post-list {
   margin-left: 0;
   list-style: none;
-  text-align: left;
-  
+
   li {
     margin-bottom: 30px;
-    text-align: left;
   }
-  
+
   .post-meta {
     font-size: 14px;
     color: #828282;
     display: block;
     margin-bottom: 5px;
-    text-align: left;
   }
-  
+
   .post-link {
     font-size: 18px;
     display: block;
     text-decoration: none;
     color: #267CB9;
-    text-align: left;
-    
+
     &:hover {
       text-decoration: underline;
     }
   }
 }
-
 .post-meta {
   font-size: 14px;
   color: #828282;
 }
-
 .site-nav {
   margin-bottom: 30px;
-  
+
   .page-link {
     margin-right: 20px;
     color: #267CB9;
     text-decoration: none;
-    
+
     &:hover {
       text-decoration: underline;
     }
   }
 }
-
-.home {
-  text-align: left;
-}
-
 @media screen and (max-width: 960px) {
   .wrapper {
     width: auto;
