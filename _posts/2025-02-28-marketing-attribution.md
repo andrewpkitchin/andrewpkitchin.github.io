@@ -1,11 +1,9 @@
 ---
 layout: post
-title: "Marketing Attribution Models: Challenges and Solutions"
+title: "the attribution problem"
 date: 2025-02-28
-permalink: /marketing-attribution.html
+permalink: /the_attribution_problem.html
 ---
-
-# Marketing Attribution Models: Challenges and Solutions
 
 **Introduction: The Attribution Challenge**
 
