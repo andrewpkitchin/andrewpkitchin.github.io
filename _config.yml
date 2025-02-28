@@ -9,7 +9,13 @@ theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
   
-# Custom permalink structure without date
+# Collections settings to override permalinks
+collections:
+  posts:
+    output: true
+    permalink: /:title.html
+    
+# Default permalink structure
 permalink: /:title.html
 
 # Exclude from processing
