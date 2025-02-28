@@ -9,8 +9,8 @@ theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
   
-# Custom permalink structure without categories
-permalink: /:year/:month/:day/:title.html
+# Custom permalink structure without date
+permalink: /:title.html
 
 # Exclude from processing
 exclude:
