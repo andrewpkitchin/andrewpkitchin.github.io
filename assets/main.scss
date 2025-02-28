@@ -1,6 +1,5 @@
 ---
 ---
-
 @import "jekyll-theme-minimal";
 
 body {
@@ -39,9 +38,11 @@ section {
 .post-list {
   margin-left: 0;
   list-style: none;
+  text-align: left;
   
   li {
     margin-bottom: 30px;
+    text-align: left;
   }
   
   .post-meta {
@@ -49,6 +50,7 @@ section {
     color: #828282;
     display: block;
     margin-bottom: 5px;
+    text-align: left;
   }
   
   .post-link {
@@ -56,6 +58,7 @@ section {
     display: block;
     text-decoration: none;
     color: #267CB9;
+    text-align: left;
     
     &:hover {
       text-decoration: underline;
@@ -80,6 +83,10 @@ section {
       text-decoration: underline;
     }
   }
+}
+
+.home {
+  text-align: left;
 }
 
 @media screen and (max-width: 960px) {
