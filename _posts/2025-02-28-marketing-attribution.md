@@ -1,66 +1,35 @@
 ---
 layout: post
-title: "the attribution problem"
+title: "half the money I spend on advertising…"
 date: 2025-02-28
 permalink: /the_attribution_problem.html
 math: true
 ---
 
-**Introduction: The Attribution Challenge**
+# **the attribution problem**
 
-Modern marketing attribution is the practice of identifying which marketing touchpoints contribute to a conversion and assigning credit to each. In theory, it answers the classic question of **"which half of the marketing spend is working?"** by mapping out the customer journey from first interaction to final sale. In practice, accurate attribution is notoriously difficult. Consumers now engage across many channels (search, social, email, etc.) and devices (desktop, mobile, tablet), creating **fragmented, multi-channel customer journeys**. Tracking these journeys end-to-end to credit each channel fairly is an uphill battle.
+Marketing attribution is the process of identifying which marketing activities contribute to conversions (such as purchases, installs, page views or other key actions) and assigning appropriate credit to each touchpoint in the customer's journey.
 
-## Common Attribution Models
+> "Half the money I spend on advertising is wasted; the trouble is I don't know which half" - John Wanamaker
 
-Various models attempt to solve this challenge, each with its own strengths and weaknesses:
+In theory, the modern attribution approach can tackle the problem referred to in the centuries-old John Wanamaker quote, at least within the digital marketing world. In practice, as with the attribution of traditional marketing, accurate attribution in the digital sphere is notoriously tricky.
 
-1. **First-touch attribution**: Assigns 100% credit to the first interaction.
-   * *Strength*: Simple to implement and understand.
-   * *Weakness*: Ignores all subsequent touchpoints that influence decisions.
+## which marketing efforts are driving our results?
 
-2. **Last-touch attribution**: Gives all credit to the final touchpoint before conversion.
-   * *Strength*: Easy to implement and focuses on what closed the deal.
-   * *Weakness*: Neglects awareness and consideration phases.
+A typical customer journey might consist of multiple marketing touchpoints before converting. A user might see a display ad, later find the company via an organic search, sign up for a newsletter, and eventually click on an email link to make a purchase. The attribution problem is to try to unravel this journey and quantify the influence of each step. We care about getting attribution right to optimise campaigns, budget allocation, and justify why we want to try or stop trying something.
 
-3. **Linear attribution**: Distributes credit equally across all touchpoints.
-   * *Strength*: Acknowledges all interactions.
-   * *Weakness*: Treats all touchpoints as equally important.
+## winning the attribution war
 
-4. **Time-decay attribution**: Assigns more credit to touchpoints closer to conversion.
-   * *Strength*: Recognizes recency bias in decision-making.
-   * *Weakness*: May undervalue early awareness efforts.
+Content marketing, advertising, search, and more can influence a single conversion. Each platform (Facebook, Google, email, etc.) tracks interactions in a silo, and each will claim that interaction as necessary (the attribution war). If a marketer naively adds up conversions reported by every channel's tool, they will **double-count** or **overestimate** results because multiple channels claim the exact conversion. Deciding how to divide the pie of credit among these touches is the crux of attribution.
 
-5. **U-shaped (position-based) attribution**: Gives 40% credit to first touch, 40% to last touch, and 20% distributed among middle touchpoints.
-   * *Strength*: Balances acquisition and conversion.
-   * *Weakness*: Arbitrary weighting may not reflect reality.
+## privacy and practical challenges
 
-6. **Algorithmic attribution**: Uses machine learning to determine credit allocation based on data patterns.
-   * *Strength*: Data-driven approach customized to your business.
-   * *Weakness*: Complex to implement; requires significant data and technical expertise.
+It's often impossible to deterministically know that the same person who clicked a mobile ad is the one who later purchased on a laptop since cookies and device IDs are not shared between devices. Even within a single device, walled-garden platforms (like Google, Facebook, Amazon) silo user data in closed ecosystems, making it hard for marketers to stitch together a unified view of the customer journey when pieces of the puzzle are locked in separate silos.
 
-## Mathematical Representation
+Privacy regulations have added to the complexity of attribution. The EU's GDPR and California's CCPA require user consent for tracking, and Apple's iOS App Tracking Transparency (ATT) framework blocks the advertising ID for users who decline tracking. Regulations like these mean attribution models have blind spots for many users. With Google's stance on deprecating third-party cookies still unclear, marketers are bracing for further disruptions.
 
-Attribution can be represented mathematically. If we have a conversion value $V$ and $n$ touchpoints, the attribution function $A$ assigns a portion of $V$ to each touchpoint $i$ such that:
+## you get what you measure
 
-$$\sum_{i=1}^{n} A(i) = V$$
+The next few posts will explore how marketers and data scientists approach this problem, from model methodologies and technical implementations to experimental validation. By understanding the spectrum of attribution techniques and their trade-offs, marketing professionals can better tailor measurement strategies to their needs and confidently allocate resources.
 
-For example, in linear attribution, each touchpoint receives equal credit:
-
-$$A(i) = \frac{V}{n}$$
-
-While in time-decay attribution with decay parameter $\lambda$, the credit might be:
-
-$$A(i) = \frac{e^{\lambda(t_i-t_1)}}{\sum_{j=1}^{n} e^{\lambda(t_j-t_1)}} \cdot V$$
-
-where $t_i$ is the time of touchpoint $i$.
-
-## The Path Forward
-
-As marketing ecosystems grow more complex, the future of attribution lies in:
-
-1. **Probabilistic modeling** to overcome tracking limitations
-2. **Mixed methods approaches** combining data-driven insights with controlled experiments
-3. **Incremental measurement** focused on lift rather than absolute attribution
-4. **Privacy-preserving techniques** that respect user consent while maintaining analytical depth
-
-The perfect attribution model remains elusive, but a thoughtful combination of approaches—tailored to your specific business model and customer journey—can provide actionable insights despite the inherent challenges.
+> "You get what you measure" - Richard Hamming
