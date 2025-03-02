@@ -73,15 +73,16 @@ section {
   }
 }
 .series-tag {
-  display: inline-block;
+  display: block;
   background-color: #f0f0f0;
   color: #267CB9;
   font-size: 12px;
   padding: 2px 8px;
   border-radius: 3px;
-  margin-left: 10px;
-  vertical-align: middle;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-weight: 500;
+  width: fit-content;
 }
 
 /* Optional hover effect */
