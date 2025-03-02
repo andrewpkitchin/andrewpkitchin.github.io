@@ -3,6 +3,7 @@ layout: post
 title: "enter the three-letter acronyms"
 date: 2025-03-02
 permalink: /attribution-part-two.html
+series: "the attribution problem"
 math: true
 ---
 
