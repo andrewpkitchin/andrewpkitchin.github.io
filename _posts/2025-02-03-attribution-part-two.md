@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "enter the three-letter acronyms"
-date: 2025-02-03
+date: 2025-03-03
 permalink: /attribution-part-two.html
 series: "the attribution problem"
 math: true
