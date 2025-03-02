@@ -14,6 +14,7 @@ collections:
   posts:
     output: true
     permalink: /:title.html
+    future: false
     
 # Default permalink structure
 permalink: /:title.html
