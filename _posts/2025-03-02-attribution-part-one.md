@@ -3,6 +3,7 @@ layout: post
 title: "half the money I spend on advertising…"
 date: 2025-03-02
 permalink: /attribution-part-one.html
+series: "the attribution problem"
 math: true
 ---
 
