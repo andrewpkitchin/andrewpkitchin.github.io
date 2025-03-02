@@ -33,4 +33,6 @@ Privacy regulations have added to the complexity of attribution. The EU's GDPR a
 
 ## enter the three-letter acronyms
 
-The next few posts will explore how marketers and data scientists approach this problem, from model methodologies and technical implementations to experimental validation. By understanding the spectrum of attribution techniques and their trade-offs, marketing professionals can better tailor measurement strategies to their needs and more confidently allocate resources.
+The next few posts will explore how marketers and data scientists approach this problem. We will introduce model methodologies like multi-touch attribution (MTA) and Marketing Mix Modelling (MMM), look at technical implementations like programmatic events, and consider attempts at experimental validation like incrementality testing. 
+
+By understanding the spectrum of attribution techniques and their trade-offs, marketing professionals can better tailor measurement strategies to their needs and more confidently allocate resources.
