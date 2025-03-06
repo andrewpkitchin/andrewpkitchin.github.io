@@ -7,8 +7,6 @@ series: "the attribution problem"
 math: true
 ---
 
-# the mechanics of attribution
-
 Attribution works through a combination of tracking methods that capture user interactions across digital channels. Below is a breakdown of some well known methods.
 
 ## Referrer Data
