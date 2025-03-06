@@ -23,6 +23,8 @@ Single touch attribution models assign all of the conversion credit to just one 
 
 **First-Touch Attribution:** This model gives full credit to the very first interaction that brought the customer into the funnel. If a Facebook ad first captured their attention three weeks before purchase, Facebook gets 100% credit regardless of what happened between that click and conversion.
 
+> "First click attribution is akin to giving my first girlfriend 100% of the credit for me marrying my wife." - Avinash Kaushik
+
 Single-touch models are appealing for their simplicity. They can be implemented by recording either the first or last referrer for each conversion. Last-touch intuitively gives credit to what "closed the deal," while first-touch acknowledges what "made the introduction".
 
 The downside is that these models fail to capture much of the complexity of the multi-channel experience customers go through. Consider this journey:
