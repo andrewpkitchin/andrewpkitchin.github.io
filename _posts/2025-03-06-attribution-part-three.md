@@ -1,7 +1,13 @@
+---
+layout: post
+title: "the mechanics of attribution"
+date: 2025-03-03
+permalink: /attribution-part-three.html
+series: "the attribution problem"
+math: true
+---
 
-
-
-# Mechanics of Attribution
+# the mechanics of attribution
 
 Attribution works through a combination of tracking methods that capture user interactions across digital channels. Below is a breakdown of some well known methods.
 
