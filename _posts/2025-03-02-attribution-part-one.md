@@ -31,7 +31,13 @@ It's often impossible to confirm that the person who clicked a mobile ad is the 
 
 Privacy regulations add another layer of complexity. The EU's GDPR and California's CCPA require user consent for tracking, while Apple's iOS App Tracking Transparency framework blocks advertising IDs for users who opt out. These regulations create blind spots in attribution models. With Google's plans for third-party cookies still evolving, marketers are preparing for further changes.
 
-## enter the three-letter acronyms
+## it's not real until it's an acronym
 
-To address these attribution challenges, marketers and data scientists employ various methodologies like Multi-Touch Attribution (MTA) and Marketing Mix Modeling (MMM). In upcoming articles, we'll examine these models and their technical implementations, including programmatic events and experimental validation approaches like incrementality testing.
+To address these attribution challenges, marketers and data scientists employ various methodologies like Multi-Touch Attribution (MTA) and Marketing Mix Modeling (MMM). 
+
+> "Everything in ad tech is an acronym, it's not real until it's an acronym" - Antonio García Martínez
+
+In upcoming articles, we'll examine these models and their technical implementations, including programmatic events and experimental validation approaches like incrementality testing.
+
+ 
 
