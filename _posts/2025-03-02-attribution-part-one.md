@@ -7,6 +7,8 @@ series: "the attribution problem"
 math: true
 ---
 
+<img src="/assets/images/attribution_one.webp" alt="random tech/attribution inspired images" width="600" style="display: block; margin: 20px auto;">
+
 ## **the attribution problem**
 
 Attribution is the process of identifying which touchpoints in a user's journey contribute to conversions and determining their relative impact on purchasing decisions. For example, we might want to figure out which marketing efforts deserve credit for bringing customers through the door.
