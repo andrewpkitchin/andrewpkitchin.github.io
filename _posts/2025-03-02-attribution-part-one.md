@@ -9,30 +9,29 @@ math: true
 
 ## **the attribution problem**
 
-Attribution is the process of identifying which touchpoints in a user's journey contribute to customer conversions and determining their relative impact on the purchasing decision. 
+Attribution is the process of identifying which touchpoints in a user's journey contribute to conversions and determining their relative impact on purchasing decisions. For example, we might want to figure out which marketing efforts deserve credit for bringing customers through the door.
 
 > "Half the money I spend on advertising is wasted; the trouble is I don't know which half." - John Wanamaker
 
-In theory, the modern attribution approaches should tackle the problem referred to in the centuries-old John Wanamaker quote, at least within the digital marketing world. In practice, accurate attribution is notoriously tricky.
+This prescient quote from Wanamaker should be outdated in our digital marketing era. Modern attribution approaches promise to solve this age-old problem, at least for online marketing. Yet, in practice, accurate attribution remains challenging.
 
-## which marketing efforts are driving our results?
+Consider a typical customer journey: someone sees your display ad, later discovers your company through organic search, signs up for a newsletter, and finally clicks an email link to make a purchase. 
 
-A typical customer journey might consist of multiple marketing touchpoints, some before their first interaction with a product and some after. A user might see a display ad, later find the company via an organic search, sign up for a newsletter, and eventually click on an email link and make a purchase. 
-
-The attribution problem is to try to unravel this journey and quantify the influence of each step. We care about getting attribution right to optimize marketing campaigns, budget allocation, and justify why we want to try, or stop trying something.
+The attribution challenge is unraveling this journey to quantify the influence of each step. Getting attribution right matters because it helps optimize marketing campaigns, allocate budgets effectively, and justify strategic decisions about what to pursue or abandon.
 
 ## winning the attribution war
 
-Each ad platform tracks interactions in a silo, and each will claim that interaction as necessary (the attribution war). If a marketer naively adds up conversions reported by Facebook and Google, they may overcount or overestimate results because multiple channels claim credit for the exact conversion. Deciding how to divide the pie of credit among these touches is the crux of attribution.
+Each advertising platform tracks interactions independently and naturally claims credit for conversions (the so-called attribution war). If marketers simply add up conversions reported by, for example, Facebook and Google, they'll likely overcount results because both channels are claiming the same victory. Determining how to divide credit among these touchpoints is the heart of attribution.
 
 ## you get what you're allowed to measure
 
-It's often impossible to deterministically know that the same person who clicked a mobile ad is the one who later purchased using a laptop since cookies and device IDs are not shared between devices. Even within a single device, walled-garden platforms (like Google, Facebook, Amazon) silo user data in closed ecosystems, making it hard for analysts to stitch together a unified view of the customer journey when pieces of the puzzle are locked in separate silos.
+It's often impossible to confirm that the person who clicked a mobile ad is the same one who later purchased on a computer since cookies and device IDs aren't shared between devices. Even on a single device, walled-garden platforms like Google, Facebook, and Amazon keep user data in closed ecosystems, making it challenging to create a unified view of the customer journey.
 
 > "You get what you measure." - Richard Hamming
 
-Privacy regulations have added to the complexity of attribution. The EU's GDPR and California's CCPA require user consent for tracking, and Apple's iOS App Tracking Transparency framework blocks the advertising ID for users who decline tracking. Regulations like these mean attribution models have blind spots for many users. With Google's stance on deprecating third-party cookies still unclear, marketers are bracing for further disruptions.
+Privacy regulations add another layer of complexity. The EU's GDPR and California's CCPA require user consent for tracking, while Apple's iOS App Tracking Transparency framework blocks advertising IDs for users who opt out. These regulations create blind spots in attribution models. With Google's plans for third-party cookies still evolving, marketers are preparing for further changes.
 
 ## enter the three-letter acronyms
 
-To approach the attribution problem, marketers and data scientists use various methodologies like multi-touch attribution (MTA) and Marketing Mix Modelling (MMM). In the following articles, we will examine these models and technical implementations, like programmatic events and attempts at experimental validation like incrementality testing.
+To address these attribution challenges, marketers and data scientists employ various methodologies like Multi-Touch Attribution (MTA) and Marketing Mix Modeling (MMM). In upcoming articles, we'll examine these models and their technical implementations, including programmatic events and experimental validation approaches like incrementality testing.
+
