@@ -2,6 +2,7 @@ title: in search of a theorem
 description: a simple blog 
 author: "Andrew Kitchin"
 url: "https://andrewpkitchin.github.io"
+version: 1.0.0  # Use this for cache busting
 
 # Build settings
 markdown: kramdown
@@ -18,6 +19,12 @@ collections:
     
 # Default permalink structure
 permalink: /:title.html
+
+# SASS configuration for cache busting and compression
+sass:
+  style: compressed
+  sass_dir: _sass
+  digest: true  # This adds a hash to the filename based on content
 
 # Exclude from processing
 exclude:
