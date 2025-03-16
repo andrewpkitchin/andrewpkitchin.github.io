@@ -656,4 +656,21 @@ section {
   }
 }
 
+/* Feature image styling */
+.feature-image {
+  display: block;
+  margin: 20px 0 20px 40px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-specific styling */
+@media screen and (max-width: 600px) {
+  .feature-image {
+    margin: 20px 0; /* Remove left margin on mobile */
+    width: 100%; /* Full width on small screens */
+    max-width: 400px; /* Don't exceed original width */
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
