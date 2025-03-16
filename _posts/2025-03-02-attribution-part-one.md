@@ -7,6 +7,37 @@ series: "the attribution problem"
 math: true
 ---
 
+<!-- Audio player with custom styling -->
+<div class="audio-container">
+  <audio id="attribution-audio" preload="none">
+    <source src="/assets/audio/attribution-podcast.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button class="play-button" onclick="togglePlay()">
+    <span class="play-icon">▶</span>
+    <span class="pause-icon" style="display: none;">❚❚</span>
+  </button>
+  <span class="listen-text">Listen</span>
+</div>
+
+<script>
+  function togglePlay() {
+    var audio = document.getElementById('attribution-audio');
+    var playIcon = document.querySelector('.play-icon');
+    var pauseIcon = document.querySelector('.pause-icon');
+    
+    if (audio.paused) {
+      audio.play();
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'inline-block';
+    } else {
+      audio.pause();
+      playIcon.style.display = 'inline-block';
+      pauseIcon.style.display = 'none';
+    }
+  }
+</script>
+
 <img src="/assets/images/attribution_one.webp" alt="random tech/attribution inspired images" width="400" class="feature-image">
 
 ## **the attribution problem**
