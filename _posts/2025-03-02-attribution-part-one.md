@@ -7,7 +7,7 @@ series: "the attribution problem"
 math: true
 ---
 
-<img src="/assets/images/attribution_one.webp" alt="random tech/attribution inspired images" width="400" style="display: block; margin: 20px 0 20px 40px;">
+<img src="/assets/images/attribution_one.webp" alt="random tech/attribution inspired images" width="400" class="feature-image">
 
 ## **the attribution problem**
 
