@@ -23,7 +23,7 @@ The attribution challenge is unraveling this journey to quantify the influence o
 
 ## winning the attribution war
 
-Each advertising platform tracks interactions independently and naturally claims credit for conversions (the so-called attribution war). If marketers simply add up conversions reported by, for example, Facebook and Google, they'll likely overcount results because both channels are claiming the same victory. Determining how to divide credit among these touchpoints is the heart of attribution.
+Each advertising platform tracks interactions independently and naturally claims credit for conversions (the so-called attribution war). If marketers simply add up conversions reported by say Facebook and Google, they'll likely overcount results because both channels are claiming the same victory. Determining how to divide credit among these touchpoints is the heart of attribution.
 
 ## you get what you're allowed to measure
 
@@ -37,7 +37,7 @@ Privacy regulations add another layer of complexity. The EU's GDPR and Californi
 
 To address these attribution challenges, marketers and data scientists employ various methodologies like Multi-Touch Attribution (MTA) and Marketing Mix Modeling (MMM). 
 
-> "Everything in ad tech is an acronym, it's not real until it's an acronym" - Antonio García Martínez
+> "Everything in ad tech is an acronym, it's not real until it's an acronym." - Antonio García Martínez
 
 In upcoming articles, we'll examine these models and their technical implementations, including programmatic events and experimental validation approaches like incrementality testing.
 
