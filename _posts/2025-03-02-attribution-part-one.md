@@ -7,9 +7,9 @@ series: "the attribution problem"
 math: true
 ---
 
-<!-- Audio player with custom styling -->
+<!-- Enhanced audio player with progress bar and time display -->
 <div class="audio-container">
-  <audio id="attribution-audio" preload="none">
+  <audio id="attribution-audio" preload="metadata">
     <source src="/assets/audio/attribution-podcast.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -17,10 +17,66 @@ math: true
     <span class="play-icon">▶</span>
     <span class="pause-icon" style="display: none;">❚❚</span>
   </button>
-  <span class="listen-text">Listen</span>
+  <div class="audio-controls">
+    <span class="listen-text">Listen</span>
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="time-display">
+        <span class="current-time">0:00</span>
+        <span class="time-separator">/</span>
+        <span class="total-time">0:00</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('attribution-audio');
+    var playIcon = document.querySelector('.play-icon');
+    var pauseIcon = document.querySelector('.pause-icon');
+    var progressFill = document.querySelector('.progress-fill');
+    var currentTimeDisplay = document.querySelector('.current-time');
+    var totalTimeDisplay = document.querySelector('.total-time');
+    var progressBar = document.querySelector('.progress-bar');
+    
+    // Format time in MM:SS
+    function formatTime(seconds) {
+      var minutes = Math.floor(seconds / 60);
+      var remainingSeconds = Math.floor(seconds % 60);
+      return minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
+    }
+    
+    // Update progress bar and time display
+    audio.addEventListener('timeupdate', function() {
+      var percent = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = percent + '%';
+      currentTimeDisplay.textContent = formatTime(audio.currentTime);
+    });
+    
+    // Set total time once metadata is loaded
+    audio.addEventListener('loadedmetadata', function() {
+      totalTimeDisplay.textContent = formatTime(audio.duration);
+    });
+    
+    // Allow seeking when clicking on progress bar
+    progressBar.addEventListener('click', function(e) {
+      var rect = progressBar.getBoundingClientRect();
+      var pos = (e.clientX - rect.left) / progressBar.offsetWidth;
+      audio.currentTime = pos * audio.duration;
+    });
+    
+    // Handle playback end
+    audio.addEventListener('ended', function() {
+      playIcon.style.display = 'inline-block';
+      pauseIcon.style.display = 'none';
+      progressFill.style.width = '0%';
+      audio.currentTime = 0;
+    });
+  });
+  
   function togglePlay() {
     var audio = document.getElementById('attribution-audio');
     var playIcon = document.querySelector('.play-icon');
