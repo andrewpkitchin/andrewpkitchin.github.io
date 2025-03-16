@@ -39,7 +39,7 @@ To address these attribution challenges, marketers and data scientists employ va
 
 > "Everything in ad tech is an acronym, it's not real until it's an acronym." - Antonio García Martínez
 
-In upcoming articles, we'll examine these models and their technical implementations, including programmatic events and experimental validation approaches like incrementality testing.
+In upcoming posts, we'll examine these models and their technical implementations, including programmatic events and experimental validation approaches like incrementality testing.
 
  
 
