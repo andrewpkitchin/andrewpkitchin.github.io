@@ -2,7 +2,7 @@
 layout: post
 title: "the multi-touch journey"
 date: 2025-03-10
-permalink: /attribution-part-two.html
+permalink: /attribution-part-four.html
 series: "the attribution problem"
 math: true
 ---
