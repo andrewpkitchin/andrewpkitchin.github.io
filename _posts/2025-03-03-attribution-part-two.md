@@ -2,7 +2,7 @@
 layout: post
 title: "programmatic events and logging"
 date: 2025-03-03
-permalink: /attribution-part-four.html
+permalink: /attribution-part-two.html
 series: "the attribution problem"
 math: true
 ---
