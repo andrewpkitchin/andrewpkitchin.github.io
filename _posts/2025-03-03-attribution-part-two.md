@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "the multi-touch journey"
-date: 2025-03-03
+date: 2025-03-10
 permalink: /attribution-part-two.html
 series: "the attribution problem"
 math: true
 ---
 
-## the attribution problem - part two
+## the attribution problem
 
 > "Attribution is trying to solve a fundamentally difficult problem: how do we allocate credit for a conversion across multiple marketing touchpoints?" - Bryan Eisenberg
 
