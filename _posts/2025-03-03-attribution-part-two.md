@@ -7,6 +7,8 @@ series: "the attribution problem"
 math: true
 ---
 
+<img src="/assets/images/attribution_two.webp" alt="event firing inspired image" width="400" class="feature-image">
+
 **tracking the invisible**
 
 Programmatic events let us capture user actions as they navigate our digital spaces. Rather than relying on basic server logs or simple page counters, developers strategically implement event tracking that activates whenever something meaningful happens.
