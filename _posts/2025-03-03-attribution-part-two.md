@@ -9,7 +9,7 @@ math: true
 
 <img src="/assets/images/attribution_two.webp" alt="event firing inspired image" width="400" class="feature-image">
 
-# **tracking the invisible**
+## **tracking the invisible**
 
 A programmatic event is a structured record of something that happens in a system, often triggered by a user action.
 
