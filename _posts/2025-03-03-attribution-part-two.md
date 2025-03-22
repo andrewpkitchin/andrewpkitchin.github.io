@@ -70,7 +70,7 @@ When a conversion happens, the server records the event by writing a line of str
 
 This is a simple example. In a real system, you'd typically send this data to a central analytics service. But the core concept remains: collect key details in a consistent format whenever something significant happens.
 
-## **Signal and Noise**
+## **signal and noise**
 
 Not everything should be tracked. Over-tracking creates noise that obscures meaningful patterns.
 
