@@ -26,7 +26,6 @@ Events let us capture user actions as they navigate our websites or apps. Rather
 For websites, JavaScript[^2] running in the browser typically handles event recording. The following snippet creates a structured record of a page view—capturing what the user is viewing, when they arrived, and their user ID—then sends it to an analytics system:
 
 ```javascript
-// Track what happens in the browser
 function logPageView() {
     const event = {
         event_type: 'page_view',
@@ -34,7 +33,7 @@ function logPageView() {
         timestamp: Date.now(),
         user_id: getCookie('user_id') || null
     };
-    // Send the event data to our analytics service
+    // Send the event data to our analytics service.
     fetch('https://analytics.example.com/collect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
