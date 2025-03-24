@@ -208,6 +208,7 @@ section {
   width: 100%;
   position: static; /* Ensures the footer is not floating/fixed */
   bottom: 0;
+  clear: both; /* Prevents floating elements from affecting the footer */
 }
 
 .footer-content {
@@ -231,9 +232,15 @@ section {
   .site-footer {
     margin-top: 20px;
     padding-top: 15px;
+    border-top-width: 1px; /* Ensure single line on mobile */
   }
   
   .footer-content {
     padding-right: 10px; /* Less padding on mobile */
+  }
+  
+  /* Reset any potential double borders from other elements */
+  section {
+    border-bottom: none;
   }
 }
