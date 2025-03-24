@@ -1,0 +1,129 @@
+---
+layout: post
+title: "bayesian-guess"
+date: 2025-03-12
+permalink: /bayesian-guess.html
+math: true
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bayesian Guessing Game</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+      max-width: 700px;
+    }
+    input, button {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+    }
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<h1>I'm thinking of a number between 1 and 100...</h1>
+
+<p>
+  In this game, I've picked a secret number <code>n</code> between 1 and 100. Can you guess it?
+  Each time you click the button below, I’ll give you a number between 1 and <code>n</code>. 
+  You can use this information to update your beliefs.
+</p>
+
+<label for="userGuess">What's your guess?</label>
+<input type="number" id="userGuess" min="1" max="100" />
+<button onclick="recordGuess()">Submit Guess</button>
+<p id="guessStatus"></p>
+
+<button onclick="giveClue()">🔍 Get a Clue</button>
+<p id="clueOutput"></p>
+
+<canvas id="beliefChart" width="600" height="400"></canvas>
+
+<p>
+  The chart shows your belief about what the number <code>n</code> might be, updated with each new clue. 
+  We start by assuming every number is equally likely (a uniform prior). After each clue, we apply Bayes’ rule 
+  to update our belief distribution.
+</p>
+
+<button onclick="revealNumber()">🎯 Reveal the Number</button>
+<p id="revealOutput"></p>
+
+<script>
+  let secretNumber = Math.floor(Math.random() * 100) + 1;
+  let userGuess = null;
+  let clues = [];
+
+  // Prior: uniform distribution
+  let belief = Array(100).fill(1 / 100);
+
+  const ctx = document.getElementById('beliefChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: Array.from({length: 100}, (_, i) => i + 1),
+      datasets: [{
+        label: 'Belief (Probability)',
+        data: belief,
+        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 0.05
+        }
+      }
+    }
+  });
+
+  function recordGuess() {
+    const val = parseInt(document.getElementById('userGuess').value);
+    if (isNaN(val) || val < 1 || val > 100) {
+      document.getElementById('guessStatus').textContent = "Please enter a number between 1 and 100.";
+    } else {
+      userGuess = val;
+      document.getElementById('guessStatus').textContent = `Thanks! You've guessed: ${val}`;
+    }
+  }
+
+  function giveClue() {
+    const clue = Math.floor(Math.random() * secretNumber) + 1;
+    clues.push(clue);
+    document.getElementById('clueOutput').textContent = `You received a clue: ${clue}`;
+
+    // Bayesian update
+    let newBelief = [];
+    let total = 0;
+    for (let i = 1; i <= 100; i++) {
+      // P(clue | n = i): 1/i if clue <= i, else 0
+      let likelihood = (clue <= i) ? 1 / i : 0;
+      let updated = belief[i - 1] * likelihood;
+      newBelief.push(updated);
+      total += updated;
+    }
+
+    // Normalize
+    belief = newBelief.map(p => p / total);
+
+    // Update chart
+    chart.data.datasets[0].data = belief;
+    chart.update();
+  }
+
+  function revealNumber() {
+    document.getElementById('revealOutput').textContent = `The number I was thinking of was: ${secretNumber}`;
+  }
+</script>
+
+</body>
+</html>
