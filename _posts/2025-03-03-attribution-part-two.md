@@ -73,7 +73,7 @@ This is a simple example. In a real system, you'd typically send this data to a 
 
 Not everything should be tracked. Over-tracking creates noise that obscures meaningful patterns.
 
-> "Data is like garbage. You'd better know what you are going to do with it before you collect it." - probably not Mark Twain
+> "Data is like garbage. You'd better know what you are going to do with it before you collect it." - (Probably not) Mark Twain
 
 When getting started, designing a small, purposeful set of events with straightforward analytical questions in mind is often the right approach for all but the most data-capable teams. Trying to track everything and planning to figure out the details later can lead to analysis paralysis.
 
