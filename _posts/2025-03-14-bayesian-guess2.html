@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "bayesian guessing 2"
+title: "i'm thinking of a number between 1 and 100..."
 date: 2025-03-14
 permalink: /bayesian-guess2.html
 math: true
@@ -51,10 +51,10 @@ math: true
 </head>
 <body>
 
-<h1>I'm thinking of a number between 1 and 100...</h1>
+<h1>guessing with bayes</h1>
 
 <p>
-  In this game, I've picked a secret number <code>n</code> between 1 and 100. Can you guess it?
+  I've picked a secret number <code>n</code> between 1 and 100. Can you guess it?
 </p>
 
 <label for="userGuess">What's your guess?</label>
@@ -65,8 +65,8 @@ math: true
 <div class="section">
   <p><strong>Need a clue?</strong></p>
   <p>
-    If you need a clue, click the button below. Each time you click, I’ll give you a number between 1 and <code>n</code>. 
-    You can use this information to update your beliefs and improve your guess if you like.
+    If you want a clue, click the button below. Each time you click, I’ll give you a number between 1 and <code>n</code>. 
+    You can use these clues to update your belief of how good your guess is. you can go back and change your guess to if you like.
   </p>
   <button onclick="giveClue()">Get a Clue</button>
   <p id="clueOutput"></p>
@@ -76,16 +76,16 @@ math: true
 
 <div class="section">
   <p>
-    The chart shows your belief about what the number <code>n</code> might be, updated with each new clue. 
-    We start by assuming every number is equally likely (a uniform prior). After each clue, we apply Bayes’ rule 
-    to update our belief distribution.
+    The graph shows the probabilities of what <code>n</code> might be. This is updated each time you get a clue new clue. 
+    We start by assuming every number is equally likely - this is called a uniform prior. After each clue, we apply Bayes’ rule 
+    to update the distribution of probabilities.
   </p>
   <p>
-    Here's a simplified version of how it works:
+    Here's the details of what's going on.
     <br><br>
-    Suppose your prior belief is that all numbers are equally likely, so each number has probability 1%. Now suppose you get a clue, say <code>c = 10</code>.
+    Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of being my secret number. Now suppose you get a clue, say <code>c = 10</code>.
     <br><br>
-    For each possible number <code>i</code> (from 1 to 100), you compute the likelihood <code>P(c | n = i)</code>:
+    For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>, which is read - the probability of getting clue c if my secret number is in-fact i. Let look when c = 10. :
     <ul>
       <li>If <code>i < 10</code>, then <code>P(c | n = i) = 0</code> because the clue can't be greater than <code>n</code>.</li>
       <li>If <code>i ≥ 10</code>, then <code>P(c | n = i) = 1/i</code>, because the clue is uniformly sampled between 1 and <code>n</code>.</li>
