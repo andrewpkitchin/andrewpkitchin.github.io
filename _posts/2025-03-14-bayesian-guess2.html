@@ -68,7 +68,7 @@ math: true
     If you need a clue, click the button below. Each time you click, I’ll give you a number between 1 and <code>n</code>. 
     You can use this information to update your beliefs and improve your guess if you like.
   </p>
-  <button onclick="giveClue()">🔍 Get a Clue</button>
+  <button onclick="giveClue()">Get a Clue</button>
   <p id="clueOutput"></p>
 </div>
 
@@ -83,19 +83,24 @@ math: true
   <p>
     Here's a simplified version of how it works:
     <br><br>
-    Suppose your prior belief is that all numbers are equally likely (1% each). Now suppose you get a clue, say <code>c = 10</code>.
-    If a number <code>i</code> is the true number, then the chance of getting this clue is <code>P(c | n = i)</code>, which is <code>1/i</code> if <code>c ≤ i</code>, and 0 otherwise.
+    Suppose your prior belief is that all numbers are equally likely, so each number has probability 1%. Now suppose you get a clue, say <code>c = 10</code>.
     <br><br>
-    Using Bayes' theorem:
+    For each possible number <code>i</code> (from 1 to 100), you compute the likelihood <code>P(c | n = i)</code>:
+    <ul>
+      <li>If <code>i < 10</code>, then <code>P(c | n = i) = 0</code> because the clue can't be greater than <code>n</code>.</li>
+      <li>If <code>i ≥ 10</code>, then <code>P(c | n = i) = 1/i</code>, because the clue is uniformly sampled between 1 and <code>n</code>.</li>
+    </ul>
+    Now multiply each prior by its corresponding likelihood. For example, for <code>i = 20</code>:
+    <br>
     $$
-    P(n = i \mid c) \propto P(c \mid n = i) \cdot P(n = i)
+    P(n = 20 | c = 10) \propto P(c = 10 | n = 20) \cdot P(n = 20) = \frac{1}{20} \cdot \frac{1}{100} = 0.0005
     $$
-    We multiply the prior by the likelihood and normalize across all values to update our beliefs.
+    Do this for all <code>i</code>, then normalize the results so the total adds to 1. That gives your new belief distribution.
   </p>
 </div>
 
 <div class="section">
-  <button onclick="revealNumber()">🎯 Reveal the Number</button>
+  <button onclick="revealNumber()">Reveal the Number</button>
   <p id="revealOutput"></p>
 </div>
 
@@ -161,13 +166,13 @@ math: true
     if (userGuess !== null) {
       const diff = Math.abs(userGuess - secretNumber);
       if (diff === 0) {
-        message += " 🎉 Perfect guess!";
+        message += " Perfect guess!";
       } else if (diff <= 5) {
-        message += " 🔥 Very close!";
+        message += " Very close!";
       } else if (diff <= 15) {
-        message += " 👍 Not bad!";
+        message += " Not bad!";
       } else {
-        message += " 😅 Quite far off!";
+        message += " Quite far off!";
       }
     } else {
       message += " You didn't make a guess.";
