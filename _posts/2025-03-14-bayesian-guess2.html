@@ -83,11 +83,11 @@ math: true
   <p>
     Here's the details of what's going on.
     <br><br>
-    Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of actually being <code>n</code>. Now you get a clue, say <code>c </code>.
+    Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of actually being <code>n</code>. Now you get a clue, say <code>c</code>.
     <br><br>
-    For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>. Which read this as - the probability of getting c as the clue given that <code>n</code> is equal to <code>i</code>. Let's look at the case when the first clue is 10.
+    For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>. We read this as: the probability of getting c as the clue, given that <code>n</code> is equal to <code>i</code>. Let's look at the case when the first clue is 10.
     <ul>
-      <li>If <code>i < 10</code>, then <code>P(c | n = i) = 0</code> because the clue can't be greater than <code>n</code>.</li>
+      <li>If <code>i < 10</code>, then <code>P(c | n = i) = 0</code>, because the clue can't be greater than <code>n</code>.</li>
       <li>If <code>i ≥ 10</code>, then <code>P(c | n = i) = 1/i</code>, because the clue is uniformly sampled between 1 and <code>n</code>.</li>
     </ul>
     Now multiply each prior by its corresponding likelihood. For example, for <code>i = 20</code>:
@@ -117,7 +117,7 @@ math: true
     data: {
       labels: Array.from({length: 100}, (_, i) => i + 1),
       datasets: [{
-        label: 'Belief (Probability)',
+        label: 'Probability of a guess being correct',
         data: belief,
         backgroundColor: 'rgba(54, 162, 235, 0.7)'
       }]
