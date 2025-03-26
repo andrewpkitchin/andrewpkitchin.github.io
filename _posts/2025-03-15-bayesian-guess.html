@@ -65,7 +65,7 @@ math: true
 <div class="section">
   <p><strong>Need a clue?</strong></p>
   <p>
-    If you want a clue, click the button below. Each time you click, I’ll give you a number between 1 and <code>n</code>. 
+    If you want a clue, click the button below. Each time you click, I’ll give you a number between <code>n</code> and 100. 
     You can use these clues to update your belief of how good your guess is. You can also go back and change your guess if you like.
   </p>
   <button onclick="giveClue()">Get a Clue</button>
@@ -76,7 +76,7 @@ math: true
 
 <div class="section">
   <p>
-    The graph shows the probabilities of what <code>n</code> might be. This is updated each time you get a clue new clue. 
+    The graph shows the probabilities of what <code>n</code> might be. This is updated each time you get a new clue. 
     We start by assuming every number is equally likely - this is called a uniform prior. After each clue, we apply Bayes’ rule 
     to update the distribution of probabilities.
   </p>
@@ -85,21 +85,20 @@ math: true
     <br><br>
     Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of actually being <code>n</code>. Now you get a clue, say <code>c</code>.
     <br><br>
-    For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>. We read this as: the probability of getting c as the clue, given that <code>n</code> is equal to <code>i</code>. Let's look at the case when the first clue is 10.
+    For each possible number <code>i</code> (from 1 to 100), you compute the likelihood <code>P(c | n = i)</code>. 
+    Since the clue is a number between <code>n</code> and 100, we know:
     <ul>
-      <li>If <code>i < 10</code>, then <code>P(c | n = i) = 0</code>, because the clue can't be greater than <code>n</code>.</li>
-      <li>If <code>i ≥ 10</code>, then <code>P(c | n = i) = 1/i</code>, because the clue is uniformly sampled between 1 and <code>n</code>.</li>
+      <li>If <code>i > c</code>, then <code>P(c | n = i) = 0</code>, because the clue can't be less than <code>n</code>.</li>
+      <li>If <code>i ≤ c</code>, then <code>P(c | n = i) = 1 / (100 - i + 1)</code>, since the clue is uniformly sampled from <code>[i, 100]</code>.</li>
     </ul>
-    Now multiply each prior by its corresponding likelihood. For example, for <code>i = 20</code>:
-    <br>
+    Multiply each prior by its corresponding likelihood. For example, for <code>i = 40</code> and <code>c = 60</code>:
     $$
-    P(n = 20 | c = 10) \propto P(c = 10 | n = 20) \cdot P(n = 20) = \frac{1}{20} \cdot \frac{1}{100} = 0.0005
+    P(n = 40 | c = 60) \propto P(c = 60 | n = 40) \cdot P(n = 40) = \frac{1}{61} \cdot \frac{1}{100}
     $$
-    The symbol “∝” means “is proportional to.” That is, this isn’t the final probability yet — we still need to <strong>normalize</strong> these values so they add up to 1. After computing this product for every possible value of <code>n</code>, we divide each result by the total sum to get the final probabilities:
+    Then normalize:
     $$
-    P(n = i | c = 10) = \frac{P(c = 10 | n = i) \cdot P(n = i)}{\sum_{j=1}^{100} P(c = 10 | n = j) \cdot P(n = j)}
+    P(n = i | c = 60) = \frac{P(c = 60 | n = i) \cdot P(n = i)}{\sum_{j=1}^{100} P(c = 60 | n = j) \cdot P(n = j)}
     $$
-    This gives us the updated belief distribution — our new best guess for what the number might be.
   </p>
 </div>
 
@@ -147,14 +146,14 @@ math: true
   }
 
   function giveClue() {
-    const clue = Math.floor(Math.random() * secretNumber) + 1;
+    const clue = Math.floor(Math.random() * (101 - secretNumber)) + secretNumber;
     clues.push(clue);
     document.getElementById('clueOutput').textContent = `The clue is: ${clue}`;
 
     let newBelief = [];
     let total = 0;
     for (let i = 1; i <= 100; i++) {
-      let likelihood = (clue <= i) ? 1 / i : 0;
+      let likelihood = (i <= clue) ? 1 / (101 - i) : 0;
       let updated = belief[i - 1] * likelihood;
       newBelief.push(updated);
       total += updated;
