@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "bayesian guessing"
-date: 2025-03-12
-permalink: /bayesian-guess.html
+title: "i'm thinking of a number between 1 and 100..."
+date: 2025-03-14
+permalink: /bayesian-guess2.html
 math: true
 ---
 
@@ -15,27 +15,46 @@ math: true
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 2rem;
-      max-width: 700px;
+      max-width: 800px;
+      background-color: #f9f9f9;
+      color: #333;
     }
     input, button {
-      padding: 0.5rem;
+      padding: 0.6rem;
       margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #005f99;
     }
     canvas {
       max-width: 100%;
+      margin-top: 1rem;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section {
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-<h1>I'm thinking of a number between 1 and 100...</h1>
+<h1>guessing with bayes</h1>
 
 <p>
-  In this game, I've picked a secret number <code>n</code> between 1 and 100. Can you guess it?
-  Each time you click the button below, I’ll give you a number between 1 and <code>n</code>. 
-  You can use this information to update your beliefs.
+  I'm thinking of a number between 1 and 100. Let's call the number <code>n</code>. Can you guess it?
 </p>
 
 <label for="userGuess">What's your guess?</label>
@@ -43,26 +62,57 @@ math: true
 <button onclick="recordGuess()">Submit Guess</button>
 <p id="guessStatus"></p>
 
-<button onclick="giveClue()">🔍 Get a Clue</button>
-<p id="clueOutput"></p>
+<div class="section">
+  <p><strong>Need a clue?</strong></p>
+  <p>
+    If you want a clue, click the button below. Each time you click, I’ll give you a number between 1 and <code>n</code>. 
+    You can use these clues to update your belief of how good your guess is. You can also go back and change your guess if you like.
+  </p>
+  <button onclick="giveClue()">Get a Clue</button>
+  <p id="clueOutput"></p>
+</div>
 
 <canvas id="beliefChart" width="600" height="400"></canvas>
 
-<p>
-  The chart shows your belief about what the number <code>n</code> might be, updated with each new clue. 
-  We start by assuming every number is equally likely (a uniform prior). After each clue, we apply Bayes’ rule 
-  to update our belief distribution.
-</p>
+<div class="section">
+  <p>
+    The graph shows the probabilities of what <code>n</code> might be. This is updated each time you get a clue new clue. 
+    We start by assuming every number is equally likely - this is called a uniform prior. After each clue, we apply Bayes’ rule 
+    to update the distribution of probabilities.
+  </p>
+  <p>
+    Here's the details of what's going on.
+    <br><br>
+    Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of actually being <code>n</code>. Now you get a clue, say <code>c</code>.
+    <br><br>
+    For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>. We read this as: the probability of getting c as the clue, given that <code>n</code> is equal to <code>i</code>. Let's look at the case when the first clue is 10.
+    <ul>
+      <li>If <code>i < 10</code>, then <code>P(c | n = i) = 0</code>, because the clue can't be greater than <code>n</code>.</li>
+      <li>If <code>i ≥ 10</code>, then <code>P(c | n = i) = 1/i</code>, because the clue is uniformly sampled between 1 and <code>n</code>.</li>
+    </ul>
+    Now multiply each prior by its corresponding likelihood. For example, for <code>i = 20</code>:
+    <br>
+    $$
+    P(n = 20 | c = 10) \propto P(c = 10 | n = 20) \cdot P(n = 20) = \frac{1}{20} \cdot \frac{1}{100} = 0.0005
+    $$
+    The symbol “∝” means “is proportional to.” That is, this isn’t the final probability yet — we still need to <strong>normalize</strong> these values so they add up to 1. After computing this product for every possible value of <code>n</code>, we divide each result by the total sum to get the final probabilities:
+    $$
+    P(n = i | c = 10) = \frac{P(c = 10 | n = i) \cdot P(n = i)}{\sum_{j=1}^{100} P(c = 10 | n = j) \cdot P(n = j)}
+    $$
+    This gives us the updated belief distribution — our new best guess for what the number might be.
+  </p>
+</div>
 
-<button onclick="revealNumber()">🎯 Reveal the Number</button>
-<p id="revealOutput"></p>
+<div class="section">
+  <button onclick="revealNumber()">Reveal the Number</button>
+  <p id="revealOutput"></p>
+</div>
 
 <script>
   let secretNumber = Math.floor(Math.random() * 100) + 1;
   let userGuess = null;
   let clues = [];
 
-  // Prior: uniform distribution
   let belief = Array(100).fill(1 / 100);
 
   const ctx = document.getElementById('beliefChart').getContext('2d');
@@ -71,9 +121,9 @@ math: true
     data: {
       labels: Array.from({length: 100}, (_, i) => i + 1),
       datasets: [{
-        label: 'Belief (Probability)',
+        label: 'Probability of a guess being correct',
         data: belief,
-        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+        backgroundColor: 'rgba(54, 162, 235, 0.7)'
       }]
     },
     options: {
@@ -99,29 +149,39 @@ math: true
   function giveClue() {
     const clue = Math.floor(Math.random() * secretNumber) + 1;
     clues.push(clue);
-    document.getElementById('clueOutput').textContent = `You received a clue: ${clue}`;
+    document.getElementById('clueOutput').textContent = `The clue is: ${clue}`;
 
-    // Bayesian update
     let newBelief = [];
     let total = 0;
     for (let i = 1; i <= 100; i++) {
-      // P(clue | n = i): 1/i if clue <= i, else 0
       let likelihood = (clue <= i) ? 1 / i : 0;
       let updated = belief[i - 1] * likelihood;
       newBelief.push(updated);
       total += updated;
     }
 
-    // Normalize
     belief = newBelief.map(p => p / total);
-
-    // Update chart
     chart.data.datasets[0].data = belief;
     chart.update();
   }
 
   function revealNumber() {
-    document.getElementById('revealOutput').textContent = `The number I was thinking of was: ${secretNumber}`;
+    let message = `The number I was thinking of was: ${secretNumber}.`;
+    if (userGuess !== null) {
+      const diff = Math.abs(userGuess - secretNumber);
+      if (diff === 0) {
+        message += " Perfect guess!";
+      } else if (diff <= 5) {
+        message += " Very close!";
+      } else if (diff <= 15) {
+        message += " Not bad!";
+      } else {
+        message += " Quite far off!";
+      }
+    } else {
+      message += " You didn't make a guess.";
+    }
+    document.getElementById('revealOutput').textContent = message;
   }
 </script>
 
