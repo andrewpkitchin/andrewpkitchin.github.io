@@ -97,7 +97,7 @@ math: true
     $$
     P(n = 80 | c = 90) \propto P(c = 90 | n = 80) \cdot P(n = 80) = \frac{1}{21} \cdot \frac{1}{100} \approx 0.000476
     $$
-    The symbol “∝” means “is proportional to.” That is, this isn’t the final probability yet — we still need to <strong>normalize</strong> these values so they add up to 1 (because they are probabilities). This is what we mean by normalize. After computing this product for all possible values of <code>n</code>, we divide each result by the total sum to get the final probabilities:
+    The symbol <code>\propto</code> means “is proportional to.” That is, this isn’t the final probability yet, it's off by some factor. We still need to normalize these values so they add up to 1 (because they are probabilities). This is what we mean by normalize. After computing this product for all possible values of <code>n</code>, we divide each result by the total sum to get the final probabilities:
     $$
     P(n = i | c = 90) = \frac{P(c = 90 | n = i) \cdot P(n = i)}{\sum_{j=1}^{100} P(c = 90 | n = j) \cdot P(n = j)}
     $$
