@@ -16,26 +16,42 @@ math: true
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 2rem;
+      margin: 2rem auto;
       max-width: 800px;
       background-color: #f9f9f9;
       color: #333;
+      line-height: 1.5;
     }
+    
+    h1 {
+      color: #007acc;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    
+    h2 {
+      color: #007acc;
+      margin-top: 2rem;
+    }
+    
     input, button {
       padding: 0.6rem;
       margin: 0.5rem 0;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    
     button {
       background-color: #007acc;
       color: white;
       cursor: pointer;
       transition: background-color 0.2s;
     }
+    
     button:hover {
       background-color: #005f99;
     }
+    
     canvas {
       max-width: 100%;
       margin-top: 1rem;
@@ -44,77 +60,135 @@ math: true
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    
     .section {
       margin-top: 2rem;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
+    
+    code {
+      background-color: #f0f0f0;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    
+    blockquote {
+      border-left: 3px solid #007acc;
+      padding-left: 1rem;
+      margin-left: 0;
+      color: #555;
+      background-color: #f0f7fc;
+      padding: 0.5rem 1rem;
+    }
+    
+    #guessStatus, #clueOutput, #revealOutput {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1.5rem auto;
+    }
+    
+    ul {
+      padding-left: 1.5rem;
     }
   </style>
 </head>
 <body>
 
+<h1>Guessing with Bayes</h1>
+
 <img src="/assets/images/bayes_comic.png" alt="prior posterior meme" width="400" class="feature-image">
 
-<h1>guessing with bayes</h1>
-
-<p>
+<blockquote>
   I'm thinking of a number between 1 and 100. Let's call the number <code>n</code>. Can you guess it?
-</p>
-
-<label for="userGuess">What's your guess?</label>
-<input type="number" id="userGuess" min="1" max="100" />
-<button onclick="recordGuess()">Submit Guess</button>
-<p id="guessStatus"></p>
+</blockquote>
 
 <div class="section">
-  <p><strong>Need a clue?</strong></p>
+  <label for="userGuess">What's your guess?</label>
+  <input type="number" id="userGuess" min="1" max="100" />
+  <button onclick="recordGuess()">Submit Guess</button>
+  <div id="guessStatus"></div>
+</div>
+
+<div class="section">
+  <h2>Need a clue?</h2>
   <p>
-    If you want a clue, click the button below. Each time you click, I’ll give you a number between <code>n</code> and 100. 
+    If you want a clue, click the button below. Each time you click, I'll give you a number between <code>n</code> and 100. 
     You can use these clues to update your belief of how good your guess is. You can also go back and change your guess if you like.
   </p>
   <button onclick="giveClue()">Get a Clue</button>
-  <p id="clueOutput"></p>
+  <div id="clueOutput"></div>
 </div>
 
 <canvas id="beliefChart" width="600" height="400"></canvas>
 
 <div class="section">
+  <h2>How It Works</h2>
   <p>
     The graph shows the probabilities of what <code>n</code> might be. This is updated each time you get a clue. 
-    We start by assuming every number is equally likely - this is called a uniform prior. After each clue, we apply Bayes’ theorem 
+    We start by assuming every number is equally likely - this is called a uniform prior. After each clue, we apply Bayes' theorem 
     to update the distribution of probabilities.
   </p>
-  <img src="/assets/images/bayes_theorem.png" alt="prior posterior meme" width="400" class="feature-image">
+  
+  <img src="/assets/images/bayes_theorem.png" alt="Bayes theorem" width="400">
+  
   <p>
-    Here's the details of what's going on.
-    <br><br>
-    We want to calculate the probability of <code>n</code> being some number, given a clue <code>c</code>, namely <code>P(n  c)</code>. This is called the posterior probability. 
-    <br><br>
-    <br><br>
-    Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of actually being <code>n</code>. Now you get a clue, say <code>c</code>.
-    <br><br>
-    For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>. We read this as: the probability of getting c as the clue, given that <code>n</code> is equal to <code>i</code>. Let's look at the case when the first clue is 90.
-    <ul>
-      <li>If <code>i > 90</code>, then <code>P(c | n = i) = 0</code>, because the clue can't be smaller than <code>n</code>.</li>
-      <li>If <code>i ≤ 90</code>, then <code>P(c | n = i) = 1 / (101 - i)</code>, because the clue is uniformly sampled between <code>n</code> and 100.</li>
-    </ul>
-    Now multiply each prior by its corresponding likelihood. For example, for <code>i = 80</code>:
-    <br>
-    $$
-    P(n = 80 | c = 90) \propto P(c = 90 | n = 80) \cdot P(n = 80) = \frac{1}{21} \cdot \frac{1}{100} \approx 0.000476
-    $$
-    The symbol <code>\propto</code> means “is proportional to.” That is, this isn’t the final probability yet, it's off by some factor. We still need to normalize these values so they add up to 1 (because they are probabilities). This is what we mean by normalize. After computing this product for all possible values of <code>n</code>, we divide each result by the total sum to get the final probabilities:
-    $$
-    P(n = i | c = 90) = \frac{P(c = 90 | n = i) \cdot P(n = i)}{\sum_{j=1}^{100} P(c = 90 | n = j) \cdot P(n = j)}
-    $$
-    This gives us the updated probability distribution and we can see our new best guess for what <code>n</code> might be. Also, these new probabilities will act as prior probabilities the next time we get a clue - hence the silly meme at the beginning. 
+    Here's the details of what's going on:
   </p>
+  
   <p>
-    Now back to your guess. Let's see if you were correct!
+    We want to calculate the probability of <code>n</code> being some number, given a clue <code>c</code>, namely <code>P(n | c)</code>. This is called the posterior probability.
+  </p>
+  
+  <p>
+    Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of actually being <code>n</code>. Now you get a clue, say <code>c</code>.
+  </p>
+  
+  <p>
+    For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>. We read this as: the probability of getting c as the clue, given that <code>n</code> is equal to <code>i</code>. Let's look at the case when the first clue is 90.
+  </p>
+  
+  <ul>
+    <li>If <code>i > 90</code>, then <code>P(c | n = i) = 0</code>, because the clue can't be smaller than <code>n</code>.</li>
+    <li>If <code>i ≤ 90</code>, then <code>P(c | n = i) = 1 / (101 - i)</code>, because the clue is uniformly sampled between <code>n</code> and 100.</li>
+  </ul>
+  
+  <p>
+    Now multiply each prior by its corresponding likelihood. For example, for <code>i = 80</code>:
+  </p>
+  
+  $$
+  P(n = 80 | c = 90) \propto P(c = 90 | n = 80) \cdot P(n = 80) = \frac{1}{21} \cdot \frac{1}{100} \approx 0.000476
+  $$
+  
+  <p>
+    The symbol $\propto$ means "is proportional to." That is, this isn't the final probability yet, it's off by some factor. We still need to normalize these values so they add up to 1 (because they are probabilities). This is what we mean by normalize. After computing this product for all possible values of <code>n</code>, we divide each result by the total sum to get the final probabilities:
+  </p>
+  
+  $$
+  P(n = i | c = 90) = \frac{P(c = 90 | n = i) \cdot P(n = i)}{\sum_{j=1}^{100} P(c = 90 | n = j) \cdot P(n = j)}
+  $$
+  
+  <p>
+    This gives us the updated probability distribution and we can see our new best guess for what <code>n</code> might be. Also, these new probabilities will act as prior probabilities the next time we get a clue - hence the silly meme at the beginning.
   </p>
 </div>
 
 <div class="section">
+  <h2>Ready to check your answer?</h2>
+  <p>
+    Now back to your guess. Let's see if you were correct!
+  </p>
   <button onclick="revealNumber()">Reveal the Number</button>
-  <p id="revealOutput"></p>
+  <div id="revealOutput"></div>
 </div>
 
 <script>
@@ -130,16 +204,26 @@ math: true
     data: {
       labels: Array.from({length: 100}, (_, i) => i + 1),
       datasets: [{
-        label: 'Probability of a guess being correct',
+        label: 'Probability of n being this value',
         data: belief,
-        backgroundColor: 'rgba(54, 162, 235, 0.7)'
+        backgroundColor: 'rgba(0, 122, 204, 0.7)'
       }]
     },
     options: {
       scales: {
         y: {
           beginAtZero: true,
-          max: 0.3
+          max: 0.3,
+          title: {
+            display: true,
+            text: 'Probability'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Number'
+          }
         }
       }
     }
@@ -162,16 +246,19 @@ math: true
     const val = parseInt(document.getElementById('userGuess').value);
     if (isNaN(val) || val < 1 || val > 100) {
       document.getElementById('guessStatus').textContent = "Please enter a number between 1 and 100.";
+      document.getElementById('guessStatus').style.backgroundColor = "#ffeeee";
     } else {
       userGuess = val;
       document.getElementById('guessStatus').textContent = `Thanks! You've guessed: ${val}`;
+      document.getElementById('guessStatus').style.backgroundColor = "#eeffee";
     }
   }
 
   function giveClue() {
     const clue = Math.floor(Math.random() * (101 - secretNumber)) + secretNumber;
     clues.push(clue);
-    document.getElementById('clueOutput').textContent = `The clue is: ${clue}`;
+    document.getElementById('clueOutput').textContent = `Clue #${clues.length}: The number is ${clue}`;
+    document.getElementById('clueOutput').style.backgroundColor = "#eeeeff";
 
     let newBelief = [];
     let total = 0;
@@ -194,12 +281,16 @@ math: true
       const diff = Math.abs(userGuess - secretNumber);
       if (diff === 0) {
         message += " Perfect guess!";
+        document.getElementById('revealOutput').style.backgroundColor = "#eeffee";
       } else if (diff <= 5) {
         message += " Very close!";
+        document.getElementById('revealOutput').style.backgroundColor = "#eeffee";
       } else if (diff <= 15) {
         message += " Not bad!";
+        document.getElementById('revealOutput').style.backgroundColor = "#ffffee";
       } else {
         message += " Quite far off!";
+        document.getElementById('revealOutput').style.backgroundColor = "#ffeeee";
       }
     } else {
       message += " You didn't make a guess.";
