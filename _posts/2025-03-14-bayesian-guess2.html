@@ -86,6 +86,9 @@ math: true
   <p>
     Here's the details of what's going on.
     <br><br>
+    We want to calculate the probability of <code>n</code> being some number, given a clue <code>c</code>, namely <code>P(n  c)</code>. This is called the posterior probability. 
+    <br><br>
+    <br><br>
     Our prior belief is that all numbers are equally likely, so each number has a probability of 1% of actually being <code>n</code>. Now you get a clue, say <code>c</code>.
     <br><br>
     For each possible number <code>i</code> (from 1 to 100), you compute, what we call the likelihood, <code>P(c | n = i)</code>. We read this as: the probability of getting c as the clue, given that <code>n</code> is equal to <code>i</code>. Let's look at the case when the first clue is 90.
