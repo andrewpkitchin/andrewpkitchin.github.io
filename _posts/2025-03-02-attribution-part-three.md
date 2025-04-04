@@ -62,10 +62,13 @@ Mobile Measurement Partners (MMPs) are third-party platforms that specialize in 
 MMPs process the data sent by the SDKs (including the Install Referrer data and in-app events) and apply attribution logic using various data points to determine which marketing source deserves credit for an install or subsequent event. They often match data received from the SDK with click/impression data received directly from ad networks - this data is not accessible to most companies and developers.
 
 MMPs provide dashboards and reports allowing marketers to see which campaigns are driving installs and engagement. This centralizes your attribution efforts, providing a single source of data across multiple ad networks and marketing channels, which can make it easier to make day-to-day decisions.
+
 Downsides of working with an MMP include reliance on somewhat of a black-box platform that makes attribution decisions you can’t independently verify, like crediting installs or conversions to specific channels based on proprietary logic or data.
 Over time, marketing mix modeling (MMM) can serve as a helpful check on MMP-reported performance. But MMM is data-hungry, technically demanding, and slow to mature—making it a long-term solution, not a quick fix.
-“It’s not the voting that’s democracy; it’s the counting.” – Tom Stoppard
-Google and Facebook both run the campaigns and report their own results, akin to dictators running the election and counting the votes. MMPs offer a layer of independence, akin to independent exit pollers. But let’s not stretch the analogy too far - ad networks don’t benefit much in the long run from outright deception, since marketers will stop spending if ad network spend doesn’t map to real-world sales.
+
+> “It’s not the voting that’s democracy; it’s the counting.” – Tom Stoppard
+
+Google and Facebook both run the campaigns and report the results, akin to dictators running the election and counting the votes. MMPs offer a layer of independence, akin to independent exit pollers. But let’s not stretch the analogy too far - ad networks don’t benefit much in the long run from outright deception, since marketers will stop spending if ad network spend doesn’t map to real-world sales.
 
 ## **the attribution flow**
 
