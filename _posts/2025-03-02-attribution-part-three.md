@@ -64,7 +64,7 @@ MMPs process the data sent by the SDKs (including the Install Referrer data and 
 MMPs provide dashboards and reports allowing marketers to see which campaigns are driving installs and engagement. This centralizes your attribution efforts, providing a single source of data across multiple ad networks and marketing channels, which can make it easier to make day-to-day decisions.
 
 Downsides of working with an MMP include reliance on somewhat of a black-box platform that makes attribution decisions you can’t independently verify, like crediting installs or conversions to specific channels based on proprietary logic or data.
-Over time, marketing mix modeling (MMM) can serve as a helpful check on MMP-reported performance. But MMM is data-hungry, technically demanding, and slow to mature—making it a long-term solution, not a quick fix.
+Over time, marketing mix modeling (MMM) can serve as a helpful check on MMP and ad network-reported performance. But MMM is data-hungry, technically demanding, and slow to mature—making it a long-term solution, not a quick fix.
 
 > “It’s not the voting that’s democracy; it’s the counting.” – Tom Stoppard
 
