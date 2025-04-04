@@ -46,7 +46,7 @@ The user discovered our app through a Facebook advertisement that was part of ou
 Specifically, they engaged with a video ad targeted at fitness app seekers. 
 The timestamps reveal that it took approximately 5 minutes from their initial click to the moment they decided to install the app – valuable information that helps us understand user behavior patterns and the effectiveness of our ad creative.
 
-## **software development kits **
+## **software development kits**
 
 While the Install Referrer API can be called to provide the initial install source information, Software Development Kits (SDKs) can collect and transmit this attribution data as well as track ongoing user behavior.
 
@@ -66,7 +66,7 @@ MMPs provide dashboards and reports allowing marketers to see which campaigns ar
 Downsides of working with an MMP include reliance on somewhat of a black-box platform that makes attribution decisions you can’t independently verify, like crediting installs or conversions to specific channels based on proprietary logic or data.
 Over time, marketing mix modeling (MMM) can serve as a helpful check on MMP and ad network-reported performance. But MMM is data-hungry, technically demanding, and slow to mature—making it a long-term solution, not a quick fix.
 
-> “It’s not the voting that’s democracy; it’s the counting.” – Tom Stoppard
+> "It’s not the voting that’s democracy; it’s the counting." – Tom Stoppard
 
 Google and Facebook both run the campaigns and report the results, akin to dictators running the election and counting the votes. MMPs offer a layer of independence, akin to independent exit pollers. But let’s not stretch the analogy too far - ad networks don’t benefit much in the long run from outright deception, since marketers will stop spending if ad network spend doesn’t map to real-world sales.
 
