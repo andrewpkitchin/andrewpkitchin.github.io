@@ -102,15 +102,13 @@ Attribution is the process of identifying which touchpoints in a user's journey 
 
 > "Half the money I spend on advertising is wasted; the trouble is I don't know which half." - John Wanamaker
 
-This prescient quote from Wanamaker should be outdated in our digital marketing era. Modern attribution approaches promise to solve this age-old problem, at least for online marketing. Yet, in practice, accurate attribution remains challenging.
+This prescient quote from Wanamaker should be outdated in our digital marketing era. Modern attribution approaches promise to solve this age-old problem, at least for online marketing. In practice, accurate attribution remains challenging.
 
-Consider a typical customer journey: someone sees your display ad, later discovers your company through organic search, signs up for a newsletter, and finally clicks an email link to make a purchase. 
-
-The attribution challenge is unraveling this journey to quantify the influence of each step. Getting attribution right matters because it helps optimize marketing campaigns, allocate budgets effectively, and justify strategic decisions about what to pursue or abandon.
+Consider a typical customer journey: someone sees your display ad, later discovers your company through organic search, signs up for a newsletter, and finally clicks an email link to make a purchase. The attribution problem is unraveling this journey to quantify the influence of each step. Getting attribution right matters because it helps optimize marketing campaigns, allocate budgets effectively, and justify strategic decisions about what to pursue or abandon.
 
 ## winning the attribution war
 
-Each advertising platform tracks interactions independently and naturally claims credit for conversions (the so-called attribution war). If marketers simply add up conversions reported by say Facebook and Google, they'll likely overcount results because both channels are claiming the same victory. Determining how to divide credit among these touchpoints is the heart of attribution.
+Each advertising platform tracks interactions independently and makes claims related to the credit they should receive for conversions (the so-called attribution war). If marketers simply add up conversions reported by say Facebook and Google, they'll likely overcount results because both channels are claiming the same victory. Determining how to divide credit among these touchpoints is the heart of attribution.
 
 ## you get what you're allowed to measure
 
