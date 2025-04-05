@@ -83,7 +83,7 @@ Once you have derived value from asking simple questions, utilizing core events,
 
 ## **back to attribution**
 
-Events are our first attempt at establishing some ground truth around which marketing activities led a user to take a valuable action like signing up.
+Events are our first attempt at establishing some ground truth around which marketing activities led a user to take an action like signing up.
 
 Imagine a user sees a Google ad for your website and clicks it. The link they follow includes tracking parameters in the URL:
 
@@ -91,21 +91,21 @@ Imagine a user sees a Google ad for your website and clicks it. The link they fo
 https://example.com?utm_source=google&utm_campaign=spring_launch
 ```
 
-When the page loads, a page view event fires. Alongside the basic page information, this event captures the tracking parameters and a unique user ID, which also gets stored in a cookie.
+When the page loads, a page view event fires. Alongside the basic page information, this event captures the tracking parameters contained in the URL and a unique user ID. The ID gets stored in a cookie attached to the user.
 
-That user might leave without converting. But if they return later and sign up, a second event fires. We set things up so that the sign-up event retrieves the user ID from the cookie that's still stored with the user.
+The user might leave without converting. But if they return later and sign up, a second event fires. We set things up so that the sign-up event retrieves the user ID from the cookie that's still stored with the user.
 
 We can now connect the dots: The Google ad drove the initial visit, and that same user went on to convert. The credit for this conversion can be assigned to Google.
 
 There are some important caveats to make in this toy example.
 
-- Maybe this user interacted with less trackable marketing activities between the two events, so this "first touch" attribution, which gives all the credit to the Google ad, doesn't capture the whole story. This is where multi-touch attribution comes in.
+- Maybe this user interacted with less trackable marketing activities between the two events, so this "first touch" attribution, which gives all the credit to the Google ad, doesn't capture the whole story. If we think that's important, we might consider a multi-touch attribution approach.
 - Cookie-based tracking (especially third-party) is increasingly unreliable due to browser privacy features.
 - First-party cookies are still mostly functional, but privacy tools, browser restrictions, and ad blockers can affect those as well.
 
-## **primer on user ids**
+## **a few note on user ids**
 
-The `user_id` is a unique identifier we want to use to track a person across different events, pages, and sessions.
+A user ID is a unique identifier we want to use to track a person across different events, pages, and sessions.
 
 If the user hasn't signed up or logged in, we'll assign them a temporary ID, often stored in a browser cookie. This allows us to track behavior even before they're linked to an account:
 
