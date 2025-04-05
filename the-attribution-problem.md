@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "The Attribution Problem"
+title: "the attribution problem"
 permalink: /the-attribution-problem/
 series_name: "the attribution problem"
 ---
