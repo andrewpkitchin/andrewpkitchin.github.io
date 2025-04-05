@@ -246,8 +246,8 @@ section {
     border-bottom: none;
   }
 
-/* Add to your assets/main.scss file */
-
+  /* Add to your assets/main.scss file */
+  
   .series-navigation {
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -263,7 +263,10 @@ section {
   .series-post-links {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+  }
+  
+  .series-post-item {
+    margin-bottom: 1.2rem;
   }
   
   .series-post-link {
@@ -284,7 +287,7 @@ section {
     color: #333;
     font-weight: 500;
     background-color: #f0f7fc;
-  } 
+  }
   
 }
 
