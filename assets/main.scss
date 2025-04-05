@@ -245,4 +245,52 @@ section {
   section {
     border-bottom: none;
   }
+
+  /* Add these styles to assets/main.scss */
+  
+  .series-page {
+    margin-bottom: 40px;
+  }
+  
+  .series-title {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .series-description {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8e8e8;
+    color: #444;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Update the series-tag class to make it look clickable */
+  .series-tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #267CB9;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    width: fit-content;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .series-tag:hover {
+    background-color: #267CB9;
+    color: white;
+    text-decoration: none;
+  }
 }
+
+
+
+
+
+
