@@ -124,5 +124,5 @@ To address these attribution challenges, marketers and data scientists employ va
 
 > "Everything in ad tech is an acronym, it's not real until it's an acronym." - Antonio García Martínez
 
-<p>The attribution problem series explores how to measure and assign credit for user actions across different marketing channels and touchpoints. From basic tracking techniques to advanced statistical models, these posts examine the technical and business challenges of understanding what's working in your marketing.</p>
+<p>This post is part of the attribution problem series which explores how to measure and assign credit for user actions across different marketing channels and touchpoints.</p>
 
