@@ -13,17 +13,16 @@ math: true
 <div class="game-section">
   <label for="userGuess">What's your guess?</label>
   <input type="number" id="userGuess" min="1" max="100" />
-  <button onclick="recordGuess()" class="game-button">Submit Guess</button>
+  <button onclick="recordGuess()" class="game-button">Submit</button>
   <div id="guessStatus" class="status-box"></div>
 </div>
-
 <div class="game-section">
   <h2>need a clue?</h2>
   <p>
     If you want a clue, click the button below. Each time you click, I'll give you a number between <code>n</code> and 100. 
     You can use these clues to update your belief of how good your guess is. You can also go back and change your guess if you like.
   </p>
-  <button onclick="giveClue()" class="game-button">Get a Clue</button>
+  <button onclick="giveClue()" class="game-button">Clue</button>
   <div id="clueOutput" class="status-box"></div>
 </div>
 
@@ -86,7 +85,7 @@ math: true
   <p>
     Now back to your guess. Let's see if you were correct!
   </p>
-  <button onclick="revealNumber()" class="game-button">Reveal the Number</button>
+  <button onclick="revealNumber()" class="game-button">My Number</button>
   <div id="revealOutput" class="status-box"></div>
 </div>
 
