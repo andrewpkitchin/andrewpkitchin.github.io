@@ -18,7 +18,7 @@ layout: default
   
   {% if page.series %}
     <div class="series-navigation">
-      <h3>Posts in "{{ page.series }}" series:</h3>
+      <h3>more posts in {{ page.series }} series</h3>
       
       {% assign series_posts = site.posts | where: "series", page.series | sort: "date" %}
       
