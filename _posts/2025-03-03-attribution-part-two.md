@@ -46,7 +46,7 @@ function logPageView() {
 
 ## **server-side**
 
-Events can also be logged on the server side. When a user performs an action that hits your server, such as triggering an API call, the server can log an event to a database or analytics service. This might complement client-side logging for verification or in cases where client-side tracking could be blocked.
+Events can also be logged on the server side. When a user performs an action that hits your server, such as triggering an API call, the server can log an event to a database or analytics service. This might complement client-side logging for verification or provide an alternative in cases where client-side tracking could be blocked.
 
 Here's how a Python backend might log events:
 
