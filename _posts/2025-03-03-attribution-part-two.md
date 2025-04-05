@@ -105,7 +105,7 @@ Cookie-based tracking (especially third-party) is increasingly unreliable due to
 
 First-party cookies are still mostly functional, but privacy tools, browser restrictions, and ad blockers can affect those as well.
 
-## **a few note on user ids**
+## **a few notes on user ids**
 
 A user ID is a unique identifier we want to use to track a person across different events, pages, and sessions.
 
