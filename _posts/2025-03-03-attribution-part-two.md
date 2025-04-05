@@ -71,13 +71,15 @@ This is a simple example. In a real system, you'd typically send this data to a 
 
 ## **signal and noise**
 
-Not everything should be tracked. Over-tracking creates noise that obscures meaningful patterns.
+Not everything should be tracked, especially when getting started. Over-tracking can create noise that obscures meaningful patterns.
 
 > "Data is like garbage. You'd better know what you are going to do with it before you collect it." - (Probably not) Mark Twain
 
-When getting started, designing a small, purposeful set of events with straightforward analytical questions in mind is often the right approach for all but the most data-capable teams. Trying to track everything and planning to figure out the details later can lead to analysis paralysis.
+Designing a small, purposeful set of events with straightforward analytical questions in mind is often the right approach for all but the most data-capable teams. Trying to track everything and planning to figure out the details later can lead to analysis paralysis.
 
 Maintaining documentation that details event types, their properties, and the contexts in which they fire is also crucial to help the various teams who want to use the collected data.
+
+Once you have derived value from asking simple questions, utilizing core events, you may feel up to adding a stream of events capturing highly granular data. Here you can employ more advanced statistical techniques to help you find unexpected user behaviour patterns. 
 
 ## **back to attribution**
 
