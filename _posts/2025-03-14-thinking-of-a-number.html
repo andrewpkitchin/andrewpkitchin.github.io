@@ -212,7 +212,7 @@ math: true
   function giveClue() {
     const clue = Math.floor(Math.random() * (101 - secretNumber)) + secretNumber;
     clues.push(clue);
-    document.getElementById('clueOutput').textContent = `Clue #${clues.length}: The number is ${clue}`;
+    document.getElementById('clueOutput').textContent = `Clue #${clues.length} is ${clue}`;
     document.getElementById('clueOutput').style.backgroundColor = "#eeeeff";
 
     let newBelief = [];
