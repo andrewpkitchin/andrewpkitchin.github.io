@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "the attribution problem"
+title: "series: the attribution problem"
 permalink: /the-attribution-problem/
 series_name: "the attribution problem"
 description: >-
   A series of posts exploring the challenges and solutions for attribution in digital marketing.
 ---
 
-The Attribution Problem series explores how to measure and assign credit for user actions across different marketing channels and touchpoints. From basic tracking techniques to advanced statistical models, these posts examine the technical and business challenges of understanding what's working in your marketing.
+The attribution problem series explores how to measure and assign credit for user actions across different marketing channels and touchpoints. From basic tracking techniques to advanced statistical models, these posts examine the technical and business challenges of understanding what's working in your marketing.
 
 {% assign series_posts = site.posts | where: "series", page.series_name | sort: "date" %}
   
