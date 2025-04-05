@@ -99,9 +99,11 @@ We can now connect the dots: The Google ad drove the initial visit, and that sam
 
 There are some important caveats to make in this toy example.
 
-- Maybe this user interacted with less trackable marketing activities between the two events, so this "first touch" attribution, which gives all the credit to the Google ad, doesn't capture the whole story. If we think that's important, we might consider a multi-touch attribution approach.
-- Cookie-based tracking (especially third-party) is increasingly unreliable due to browser privacy features.
-- First-party cookies are still mostly functional, but privacy tools, browser restrictions, and ad blockers can affect those as well.
+Maybe this user interacted with less trackable marketing activities between the two events, so this "first touch" attribution, which gives all the credit to the Google ad, doesn't capture the whole story. If we think that's important, we might consider a multi-touch attribution approach.
+
+Cookie-based tracking (especially third-party) is increasingly unreliable due to browser privacy features.
+
+First-party cookies are still mostly functional, but privacy tools, browser restrictions, and ad blockers can affect those as well.
 
 ## **a few note on user ids**
 
