@@ -287,6 +287,51 @@ section {
     color: white;
     text-decoration: none;
   }
+
+  /* Add to your assets/main.scss file */
+  
+  .series-navigation {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e8e8e8;
+  }
+  
+  .series-navigation h3 {
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-size: 1.2rem;
+  }
+  
+  .series-post-list {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  .series-post-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.8rem;
+    border-left: 3px solid transparent;
+  }
+  
+  .series-post-list li.current-post {
+    border-left-color: #267CB9;
+    font-weight: 500;
+  }
+  
+  .series-post-link {
+    color: #267CB9;
+    text-decoration: none;
+  }
+  
+  .series-post-link:hover {
+    text-decoration: underline;
+  }
+  
+  .current-post .series-post-link {
+    color: #333;
+  }
+  
 }
 
 
