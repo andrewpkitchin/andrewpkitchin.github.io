@@ -12,7 +12,7 @@ layout: default
           {{ post.title | escape }}
         </a>
         {% if post.series %}
-          <span class="series-tag">{{ post.series }}</span>
+          <a href="{{ '/' | append: post.series | slugify | relative_url }}" class="series-tag">{{ post.series }}</a>
         {% endif %}
       </li>
       {%- endfor -%}
