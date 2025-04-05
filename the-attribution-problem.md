@@ -9,7 +9,6 @@ series_name: "the attribution problem"
   <h1 class="series-title">{{ page.title }}</h1>
   
   <div class="series-description">
-    <p>A series of posts exploring the challenges and solutions for attribution in digital marketing.</p>
     
     <p>The attribution problem series explores how to measure and assign credit for user actions across different marketing channels and touchpoints. From basic tracking techniques to advanced statistical models, these posts examine the technical and business challenges of understanding what's working in your marketing.</p>
   </div>
