@@ -23,7 +23,7 @@ Events let us capture user actions as they navigate websites or apps. Rather tha
 
 ## **client-side**
 
-For websites, JavaScript[^2] running in the browser typically handles event recording. The following snippet creates a structured record of a page view—capturing what the user is viewing, when they arrived, and their user ID—then sends it to an analytics system:
+JavaScript[^2] running in the browser typically handles event recording for websites. The following snippet creates and communicates a page view event. The event will include what the user is viewing, when they arrived, and their user ID.
 
 ```javascript
 function logPageView() {
