@@ -25,9 +25,11 @@ layout: default
       {% if series_posts.size > 0 %}
         <div class="series-post-links">
           {% for post in series_posts %}
-            <a class="series-post-link {% if post.url == page.url %}current-post{% endif %}" href="{{ post.url | relative_url }}">
-              {{ post.title | escape }}
-            </a>
+            <div class="series-post-item">
+              <a class="series-post-link {% if post.url == page.url %}current-post{% endif %}" href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </div>
           {% endfor %}
         </div>
       {% else %}
