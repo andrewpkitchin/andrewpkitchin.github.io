@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "programmatic events and logging"
+title: "the mechanics of web attribution"
 date: 2025-03-03
 permalink: /attribution-part-two.html
 series: "the attribution problem"
@@ -9,17 +9,17 @@ math: true
 
 <img src="/assets/images/attribution_two.webp" alt="event firing inspired image" width="400" class="feature-image">
 
-## **tracking the invisible**
+## **invisible events**
 
 A programmatic event is a structured record of something that happens in a system, often triggered by a user action.
 
-For instance, when a button is clicked, aside from performing the user's intended action, it also triggers code that creates a structured object. This object might include elements like a timestamp and user ID, which is then transmitted to a logging or analytics system. This structured object is what we call an **event**[^1].
+For instance, when a button is clicked, aside from hopefully performing the user's intended action, it also triggers code that creates a structured object. This object might include elements like a timestamp and user ID, which is then transmitted to a logging or analytics system. This structured object is what we call an **event**[^1].
 
 [^1]: A term of art often used for the process of code creating and communicating an event is "event firing".
 
 > *"If you can't measure it, you can't improve it." - Peter Drucker*
 
-Events let us capture user actions as they navigate our websites or apps. Rather than relying on basic server logs or simple page counters that only provide aggregate data, we implement event tracking to gain insights into how individuals are using our products and where they're coming from.
+Events let us capture user actions as they navigate websites or apps. Rather than relying on basic server logs or page view counters that provide aggregate data, implementing event tracking allows us to gain insights into how individuals are using a product and where they're coming from.
 
 ## **client-side**
 
