@@ -1,23 +1,23 @@
 ---
 layout: post
-title: "mobile attribution"
+title: "the mechanics of mobile attribution"
 date: 2025-04-04
 permalink: /attribution-part-three.html
 series: "the attribution problem"
 math: true
 ---
 
-## **beyond the install**
+## **the install**
 
-Knowing where installs of a mobile app are coming from – for example, which ad campaign or social media post – is crucial for optimizing your marketing spend and scaling effectively. This process is called mobile attribution.
-
-We will look at some of the basic tools Android developers use to try to create a narrative of where installs are originating.
+Knowing where installs of a mobile app are coming from – for example, which ad campaign or social media post – is crucial for optimizing your marketing spend and scaling effectively. We will look at some of the basic tools Android developers use to try to create a narrative of where installs are originating.
 
 ## **google play install referrer api**
 
 Google provides an install attribution tool directly within its ecosystem, the Google Play Install Referrer API. 
 
-The API allows us, upon first launch after installation by a user, to retrieve several key pieces of information. The most valuable is the Referrer URL – the full URL string that led the user to the Play Store listing of the app. This can be set up to contain tracking parameters (like UTM tags or specific campaign IDs) appended by the ad network or marketing source. The API also provides the Referrer Click Timestamp, indicating when the user clicked the link that initiated the Play Store visit, and the App Install Begin Timestamp, marking when the app installation process started via the Play Store.
+The API allows us, upon first launch after installation by a user, to retrieve several key pieces of information. The most valuable is the Referrer URL, which is the full URL string of the page the user was on that led them to the Play Store app listing. In the case of an ad, this URL can be set up to contain tracking parameters (like UTM tags or specific campaign IDs) appended by the ad network or marketing source. 
+
+The API also provides the Referrer Click Timestamp, indicating when the user clicked the link that initiated the Play Store visit, and the App Install Begin Timestamp, marking when the app installation process started via the Play Store.
 
 The API works by securely storing referrer information when a user clicks an ad or link that directs them to the Play Store. Once the app is installed and opened, code within the app can query this API to retrieve the stored data. 
 
