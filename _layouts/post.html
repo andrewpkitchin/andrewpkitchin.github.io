@@ -17,24 +17,24 @@ layout: default
   </div>
   
   {% if page.series %}
-    <div class="series-navigation">
-      <h3>more posts in {{ page.series }} series</h3>
+    <div class="series-nav" style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e8e8e8;">
+      <h3 style="margin-bottom: 1rem; color: #333; font-size: 1.2rem;">more posts in {{ page.series }} series</h3>
       
       {% assign series_posts = site.posts | where: "series", page.series | sort: "date" %}
       
-      {% if series_posts.size > 0 %}
-        <div class="series-post-links">
-          {% for post in series_posts %}
-            <div class="series-post-item">
-              <a class="series-post-link {% if post.url == page.url %}current-post{% endif %}" href="{{ post.url | relative_url }}">
-                {{ post.title | escape }}
-              </a>
-            </div>
-          {% endfor %}
-        </div>
-      {% else %}
-        <p>No other posts found in this series.</p>
-      {% endif %}
+      {% for post in series_posts %}
+        <p style="margin-bottom: 1.2rem; display: block !important;">
+          {% if post.url == page.url %}
+            <a href="{{ post.url | relative_url }}" style="color: #333; font-weight: 500; text-decoration: none; padding: 0.3rem 0.5rem; border-left: 3px solid #267CB9; background-color: #f0f7fc; display: block !important;">
+              {{ post.title | escape }}
+            </a>
+          {% else %}
+            <a href="{{ post.url | relative_url }}" style="color: #267CB9; text-decoration: none; padding: 0.3rem 0.5rem; border-left: 3px solid transparent; display: block !important;">
+              {{ post.title | escape }}
+            </a>
+          {% endif %}
+        </p>
+      {% endfor %}
     </div>
   {% endif %}
 </article>
