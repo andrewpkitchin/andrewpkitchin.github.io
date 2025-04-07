@@ -246,27 +246,31 @@ section {
     border-bottom: none;
   }
 
-  /* Add to your assets/main.scss file */
+  /* Add or replace these styles in your assets/main.scss file */
   
   .series-navigation {
     margin-top: 3rem;
     padding-top: 1.5rem;
     border-top: 1px solid #e8e8e8;
+    display: block !important; /* Force display on all devices */
   }
   
   .series-navigation h3 {
     margin-bottom: 1rem;
     color: #333;
     font-size: 1.2rem;
+    display: block !important;
   }
   
   .series-post-links {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
+    width: 100%;
   }
   
   .series-post-item {
     margin-bottom: 1.2rem;
+    display: block !important;
   }
   
   .series-post-link {
@@ -275,6 +279,7 @@ section {
     padding: 0.3rem 0.5rem;
     border-left: 3px solid transparent;
     transition: background-color 0.2s;
+    display: block !important;
   }
   
   .series-post-link:hover {
@@ -288,6 +293,16 @@ section {
     font-weight: 500;
     background-color: #f0f7fc;
   }
+  
+  /* Ensure visibility on desktop */
+  @media screen and (min-width: 601px) {
+    .series-navigation,
+    .series-post-links,
+    .series-post-item,
+    .series-post-link {
+      display: block !important;
+    }
+}
   
 }
 
