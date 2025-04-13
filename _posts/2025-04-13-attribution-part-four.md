@@ -7,7 +7,7 @@ series: "the attribution problem"
 math: true
 ---
 
-**why multi-touch attribution?**
+## **why multi-touch attribution?**
 
 There's a danger in giving all the credit for a conversion to the last piece of marketing content a user interacted with. You might be undervaluing some activities and overvaluing others.
 
