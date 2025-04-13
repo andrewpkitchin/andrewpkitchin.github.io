@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "it's not just the destination, it's the journeys"
+title: "it's not just the destination, it's the journey"
 date: 2025-04-13
 permalink: /attribution-part-four.md
 series: "the attribution problem"
@@ -15,7 +15,7 @@ Purchase journeys can be complex and contain multiple nudges from paid and organ
 
 Multi-touch attribution (MTA) is an approach to distribute credit across multiple touchpoints.
 
-> "It's not the destination, it's the journey" - Kind of Ralph Waldo Emerson
+> "It's not the destination, it's the journey." - Kind of Ralph Waldo Emerson
 
 ## **implementing mta on a website**
 
