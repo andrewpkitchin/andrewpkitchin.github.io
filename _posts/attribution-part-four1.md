@@ -2,7 +2,7 @@
 layout: post
 title: "a soft start: budget reallocation based on results"
 date: 2025-04-07
-permalink: /attribution-part-four.html
+permalink: /attribution-part-four2.html
 series: "the attribution problem"
 math: true
 ---
