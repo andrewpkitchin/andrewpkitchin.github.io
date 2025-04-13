@@ -2,7 +2,7 @@
 layout: post
 title: "it's not just the destination, it's the journey"
 date: 2025-04-13
-permalink: /attribution-part-four.md
+permalink: /attribution-part-four.html
 series: "the attribution problem"
 math: true
 ---
